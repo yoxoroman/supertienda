@@ -1,0 +1,16 @@
+{% extends "publico/base.html" %}
+{% block titulo %}{{ tema.titulo_catalogo }}{% endblock %}
+{% block contenido %}
+  <h2>{{ tema.titulo_catalogo }}</h2>
+  <div class="grid">
+    {% for p in pagina %}
+      <div class="card">
+        {% if p.imagen %}<img src="{{ p.imagen.url }}" alt="{{ p.nombre }}">{% else %}<div class="sinfoto">Sin imagen</div>{% endif %}
+        <h3>{{ p.nombre }}</h3>
+        <p>{{ p.marca }} · {{ p.presentacion }}</p>
+        <p class="precio">Q {{ p.precio_venta|floatformat:2 }}</p>
+      </div>
+    {% empty %}<p>Aún no hay productos disponibles.</p>{% endfor %}
+  </div>
+  {% include "publico/_paginas.html" %}
+{% endblock %}

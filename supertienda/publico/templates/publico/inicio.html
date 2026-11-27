@@ -1,0 +1,14 @@
+{% extends "publico/base.html" %}
+{% block titulo %}{{ tema.titulo_inicio }}{% endblock %}
+{% block contenido %}
+  <h2>{{ tema.titulo_inicio }}</h2>
+  <p>{{ tema.descripcion_inicio|linebreaksbr }}</p>
+  {% if tema.direccion_tienda %}<p><strong>Dirección:</strong> {{ tema.direccion_tienda }}</p>{% endif %}
+  {% if tema.horario %}<p><strong>Horario:</strong> {{ tema.horario }}</p>{% endif %}
+  {% if tema.telefono_tienda %}<p><strong>Teléfono:</strong> {{ tema.telefono_tienda }}</p>{% endif %}
+  <p>
+    <a class="btn" href="{% url 'catalogo' %}">Ver catálogo</a>
+    <a class="btn" href="{% url 'comentarios' %}">Leer comentarios</a>
+    <a class="btn" href="{% url 'comentario_nuevo' %}">Enviar un comentario</a>
+  </p>
+{% endblock %}

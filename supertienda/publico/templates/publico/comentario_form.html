@@ -1,0 +1,11 @@
+{% extends "publico/base.html" %}
+{% block titulo %}{{ tema.titulo_formulario }}{% endblock %}
+{% block contenido %}
+  <h2>{{ tema.titulo_formulario }}</h2>
+  <form method="post" class="card">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn" type="submit">Enviar comentario</button>
+    <a class="btn" style="background:#777" href="{% url 'comentarios' %}">Cancelar</a>
+  </form>
+{% endblock %}

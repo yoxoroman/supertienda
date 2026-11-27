@@ -1,0 +1,11 @@
+{% extends "admin/base.html" %}
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ tema.titulo_sitio }}{% endblock %}
+{% block extrastyle %}{{ block.super }}
+<style>
+  :root { --primary: {{ tema.color_primario }}; --secondary: {{ tema.color_secundario }}; }
+  .btn-sitio { background: #fff; color: {{ tema.color_secundario }} !important; padding: 6px 14px; border-radius: 4px;
+               font-weight: 600; text-decoration: none; margin-left: 20px; }
+</style>
+{% endblock %}
+{% block branding %}<h1 id="site-name"><a href="{% url 'admin:index' %}">{{ tema.titulo_sitio }}</a></h1>{% endblock %}
+{% block nav-global %}<a class="btn-sitio" href="{% url 'inicio' %}">Ir al sitio público</a>{% endblock %}
